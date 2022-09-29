@@ -9,7 +9,7 @@ import subprocess
 from PIL import Image
 
 def txt2img(prompt: str):
-  subprocess.call("rm -r ./outputs")
+  subprocess.call("rm -rf /workspace/stable-diffusion-webui/repositories/stable-diffusion/outputs")
   subprocess.call("python ./scripts/txt2img.py --n_samples 1 --prompt "+prompt, shell=True)
   image = Image.open("/workspace/stable-diffusion-webui/repositories/stable-diffusion/outputs/txt2img-samples/grid-0000.png")
   byteIO = io.BytesIO()
