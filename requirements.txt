@@ -1,0 +1,5 @@
+scipy 
+ftfy
+fastapi 
+nest-asyncio 
+uvicorn
