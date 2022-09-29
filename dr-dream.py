@@ -10,7 +10,7 @@ from PIL import Image
 
 def txt2img(prompt: str):
   subprocess.call("python ./scripts/txt2img.py --n_samples 1 --prompt "+prompt, shell=True)
-  image = Image.open("./outputs/txt2image-samples/grid-0000.png")
+  image = Image.open("/workspace/stable-diffusion-webui/repositories/stable-diffusion/outputs/txt2img-samples/grid-0000.png")
   byteIO = io.BytesIO()
   image.save(byteIO, format='PNG')
   return byteIO.getvalue()
@@ -27,7 +27,7 @@ app.add_middleware(
 
 @app.get("/txt2img")
 async def dreams(prompt: str):
-    return Response(content=txt2image(prompt), media_type="image/png")
+    return Response(content=txt2img(prompt), media_type="image/png")
 
 @app.get("/status")
 async def status():
